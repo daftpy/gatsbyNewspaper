@@ -14,7 +14,7 @@ export default (props) => {
           <Link to={props.articlePath}>{props.articleTitle}</Link>
         </h3>
         <div
-          className="mt-2 text-gray-600 overflow-hidden"
+          className="mt-2 text-gray-700 overflow-hidden"
           dangerouslySetInnerHTML={{ __html: props.articleExcerpt }}
         />
       </div>
