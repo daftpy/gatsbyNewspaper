@@ -31,7 +31,7 @@ export default (props) => {
   return (
     <lateststories>
       <div className="px-4 md:px-0 md:pl-4 md:pr-12 pb-8">
-        <h2 className="text-xl mt-4">Latest Stories</h2>
+        <h2 className="text-xl mt-8 md:mt-4">Latest Stories</h2>
         {posts.wpgraphql.posts.edges.map((node) => {
           // Check to make sure the latest article is not
           // the same one reader is currently viewing
