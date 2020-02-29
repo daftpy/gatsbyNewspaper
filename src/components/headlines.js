@@ -35,7 +35,7 @@ export default (props) => {
         {posts.wpgraphql.posts.edges.map((node) => (
           <ArticlePreview 
             articleTitle={node.node.title}
-            articleCategory="National"
+            articleCategory={node.node.categories.nodes[0].name}
             articleExcerpt={node.node.excerpt}
             articleImage={node.node.featuredImage ? node.node.featuredImage.sourceUrl : null}
             articlePath={node.node.slug}
