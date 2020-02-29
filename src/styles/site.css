@@ -1,0 +1,38 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+    font-family: 'Noto Serif TC';
+}
+
+h1, h2, h3, h4, h5, .article-category, .article-date {
+    font-family: 'Roboto';
+}
+
+.article-content > p {
+    margin-bottom: 1rem;
+}
+
+.article-content > blockquote {
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    background: #edf3fa;
+    font-style: italic;
+    border-left: .6rem solid #818b96;
+}
+
+.article-content > figure {
+    margin: 1rem 0;
+}
+
+.article-content > ul {
+    margin-bottom: 1rem;
+    list-style-type: disc;
+}
+
+.article-content > ul li {
+    margin: .5rem 0 .5rem 1rem;
+}
