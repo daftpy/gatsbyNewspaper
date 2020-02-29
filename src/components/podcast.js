@@ -4,11 +4,11 @@ import {useStaticQuery, graphql } from "gatsby"
 export default (props) => {
   return (
     <podcast>
-      <div className="flex flex-col sm:flex-row m-auto max-w-screen-xl p-8 items-center">
-        <div className="w-40 min-w-40">
+      <div className="flex flex-col md:flex-row m-auto max-w-screen-xl p-8 items-center">
+        <div className="w-48 min-w-48 p-2">
           <img  className="shadow-xl" src="https://reason.com/wp-content/uploads/powerpress/interviewwithNG-podcast.jpg" />
         </div>
-        <div className="sm:pl-6 mt-6 sm:mt-0">
+        <div className="sm:pl-6 mt-6 sm:mt-0 flex-shrink">
           {props.inSidebar ? 
             <h2 className="text-md md:text-md font-bold italic text-center sm:text-left">Podcast</h2>
           :
