@@ -38,7 +38,7 @@ export default function Template({
             <Podcast inSidebar={true} podcastTitle="Has Trump Drained the Swamp or Stocked It With His Own Fish?"/>
           </div>
           <div>
-            <LatestStories />
+            <LatestStories stopDupe={post.title} />
           </div>
         </div>
       </div>

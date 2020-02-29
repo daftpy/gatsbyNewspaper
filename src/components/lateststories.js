@@ -7,7 +7,7 @@ export default (props) => {
   const posts = useStaticQuery(graphql`
   query {
     wpgraphql {
-      posts(where: {categoryNotIn: ["2","8"], tagNotIn: ["4"]}, first: 4) {
+      posts(where: {categoryNotIn: ["2"], tagNotIn: ["4"]}, first: 4) {
         edges {
           node {
             title
@@ -32,16 +32,26 @@ export default (props) => {
     <lateststories>
       <div className="px-4 md:px-0 md:pl-4 md:pr-12 pb-8">
         <h2 className="text-xl mt-4">Latest Stories</h2>
-        {posts.wpgraphql.posts.edges.map((node) => (
-          <ArticlePreview 
-            articleTitle={node.node.title}
-            articleCategory="National"
-            articleExcerpt={node.node.excerpt}
-            articleImage={node.node.featuredImage ? node.node.featuredImage.sourceUrl : null}
-            articlePath={node.node.slug}
-          />
-        ))}
+        {posts.wpgraphql.posts.edges.map((node) => {
+          // Check to make sure the latest article is not
+          // the same one reader is currently viewing
+          if (props.stopDupe === node.node.title) {
+            return null
+          } else {
+            return (
+              <ArticlePreview 
+                articleTitle={node.node.title}
+                articleCategory="National"
+                articleExcerpt={node.node.excerpt}
+                articleImage={node.node.featuredImage ? node.node.featuredImage.sourceUrl : null}
+                articlePath={node.node.slug}
+              />
+            )
+          }
+        })}
+
       </div>
     </lateststories>
   )
 }
+
