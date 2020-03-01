@@ -12,9 +12,10 @@ export default function Template({
 }) {
   const post = data.wpgraphql.post
   const date = new Date(post.date)
+  var descript = post.excerpt.replace(/(<([^>]+)>)/ig,"")
   return (
     <Layout siteName={data.site.siteMetadata.title} >
-      <SEO title={post.title} />
+      <SEO title={post.title} description={descript}/>
       <div className="md:flex justify-around max-w-screen-xl m-auto">
         <div className="w-full md:w-2/3 mt-8 pl-4 pr-4 md:pr-8">
           {post.featuredImage && 
