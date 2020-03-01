@@ -2,9 +2,24 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+import algoliasearch from 'algoliasearch/lite';import { 
+  InstantSearch, 
+  SearchBox, 
+  Hits, 
+  Configure 
+ } from 'react-instantsearch-dom';
+ import { CustomHits } from "./searchbox";
+
 export default class Header extends React.Component {
-  state = {
-    isVisible: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      isToggledOn: false,
+      hasInput: false,
+      refresh: false,
+      isVisible: false,
+      currentPage: 0
+    };
   }
   toggleVisible = () => {
     console.log('clicked')
@@ -16,6 +31,7 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const searchClient = algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID, process.env.GATSBY_ALGOLIA_SEARCH_KEY);
     return (
       <header>
         <div className="bg-blue-700 text-white">
@@ -68,10 +84,35 @@ export default class Header extends React.Component {
                   <button onClick={this.toggleVisible}>Search</button>
                 </li>
               </ul>
-            <div className="flex max-w-screen-xl m-auto">
-              <input className="mx-4 rounded-sm flex-shrink min-w-0 w-full" type="text" />
-              <button className="bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-2 rounded-full" onClick={this.toggleVisible} >Search</button>
+            <div className="flex flex-col max-w-screen-xl m-auto">
+              {/* <input className="mx-4 rounded-sm flex-shrink min-w-0 w-full" type="text" />
+              <button className="bg-green-500 hover:bg-green-700 text-white text-xs font-bold py-2 px-2 rounded-full" onClick={this.toggleVisible} >Search</button> */}
+              <InstantSearch
+              searchClient={searchClient}
+              indexName="Posts"
+              refresh="false"
+              >
+                <SearchBox
+                  className="searchbox"
+                  class="ais-SearchBox-input"
+                    submit={<></>}
+                    reset={<></>}
+                  translations={{
+                    placeholder: 'Search Newspaper',
+                  }}
+                  onKeyUp={(event) => {
+                    this.setState({
+                      hasInput: event.currentTarget.value !== '',
+                    });
+                  }}
+                />
+                <Configure hitsPerPage={5} page={this.state.currentPage} />
+                <div className={!this.state.hasInput ? 'input-empty p-4' : 'input-value p-4'}>
+                  <CustomHits hitComponent={Hits} />
+                </div>
+              </InstantSearch>
             </div>
+
           </div>
         }
       </header>

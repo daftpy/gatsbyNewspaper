@@ -36,3 +36,15 @@ h1, h2, h3, h4, h5, .article-category, .article-date {
 .article-content > ul li {
     margin: .5rem 0 .5rem 1rem;
 }
+
+.searchbox input {
+    background-color:#f5f5f5;
+    border: 0;
+    padding: 13px 24px;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.ais-SearchBox-submit, .ais-SearchBox-reset, .input-empty {
+    display: none;
+}
