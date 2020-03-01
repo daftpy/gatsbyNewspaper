@@ -36,6 +36,7 @@ const Hits = ({ hits }) => (
             // dangerouslySetInnerHTML={{ __html: getSnippet(hit.excerpt,  hit._highlightResult.title.matchedWords[0]) }}
             dangerouslySetInnerHTML={{ __html: hit.excerpt }}
           />
+        <p className="p-0 italic text-blue-400 text-xs">/{hit.slug}/</p>
      </Link>
     </li>
   ))}

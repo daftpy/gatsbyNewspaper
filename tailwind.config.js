@@ -5,7 +5,8 @@ module.exports = {
   variants: {
     borderWidth: ['responsive', 'last', 'hover', 'focus'],
     backgroundColor: ['odd'],
-    borderRadius: ['first', 'last']
+    borderRadius: ['first', 'last'],
+    textColor: ['odd']
   },
   plugins: [],
 }
