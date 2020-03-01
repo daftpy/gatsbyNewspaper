@@ -27,11 +27,12 @@ const getSnippet = (excerpt, match) => {
 const Hits = ({ hits }) => (
 <ul className="style text-white">
   {hits.map((hit) => (
-    <li key={hit.title}>
-      <Link to={hit.slug}>
-        <h4 className="text-blue-900">{hit.title}</h4>
+    <li className="odd:bg-blue-800 first:rounded-t-md last:rounded-b-md bg-blue-900  p-4" key={hit.title}>
+      <Link  to={hit.slug}>
+        <h4>{hit.title}</h4>
+        <h5 className="text-red-600 font-bold text-sm">{hit.categories.nodes[0].name}</h5>
         <div
-            className="article-content overflow-hidden"
+            className="article-content text-gray-300 overflow-hidden"
             // dangerouslySetInnerHTML={{ __html: getSnippet(hit.excerpt,  hit._highlightResult.title.matchedWords[0]) }}
             dangerouslySetInnerHTML={{ __html: hit.excerpt }}
           />

@@ -107,7 +107,7 @@ export default class Header extends React.Component {
                   }}
                 />
                 <Configure hitsPerPage={5} page={this.state.currentPage} />
-                <div className={!this.state.hasInput ? 'input-empty p-4' : 'input-value p-4'}>
+                <div className={!this.state.hasInput ? 'input-empty mt-4' : 'input-value mt-4'}>
                   <CustomHits hitComponent={Hits} />
                 </div>
               </InstantSearch>

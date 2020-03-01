@@ -8,6 +8,12 @@ const postQuery = `{
           slug
           date
           excerpt
+          categories {
+            nodes {
+              name
+              categoryId
+            }
+          }
         }
       }
     }
