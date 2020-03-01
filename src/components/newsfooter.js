@@ -12,7 +12,7 @@ export default (props) => {
             <Categories />
           </div>
           <div className="p-4 text-left md:w-1/2">
-            <h3>Contact</h3>
+            <h3 className="text-xl">Contact</h3>
             <p>contact@gmail.com</p>
           </div>
         </div>

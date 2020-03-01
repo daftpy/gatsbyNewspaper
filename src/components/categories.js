@@ -21,10 +21,10 @@ export default (props) => {
   )
   return (
     <categories>
-      <h3>Categories</h3>
+      <h3 className="text-xl">Categories</h3>
       <ul className="flex flex-wrap">
         {categories.wpgraphql.categories.edges.map((node) => (
-          <li className="pr-4"><Link to={'/category/' + node.node.slug}>{node.node.name}</Link></li>
+          <li className="article-category pr-4"><Link to={'/category/' + node.node.slug}>{node.node.name}</Link></li>
         ))}
       </ul>
     </categories>

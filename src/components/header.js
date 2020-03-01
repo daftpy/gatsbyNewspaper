@@ -23,7 +23,7 @@ export default class Header extends React.Component {
             <div className="font-bold text-white text-2xl">
               <Link to="/"><h1>{this.props.siteTitle}</h1></Link>
             </div>
-            <ul className="hidden md:visible md:flex justify-between text-center text-sm items-center">
+            <ul className="article-category hidden md:visible md:flex justify-between text-center text-sm items-center">
               <li className="mx-4">
                 <Link to="/category/local">Local</Link>
               </li>
@@ -48,7 +48,7 @@ export default class Header extends React.Component {
         </div>
         { this.state.isVisible && 
           <div id="searchBar" className="bg-blue-600 p-4">
-            <ul className="md:hidden text-center text-white">
+            <ul className="article-category md:hidden text-center text-white">
                 <li>
                   <Link to="/category/local">Local</Link>
                 </li>
